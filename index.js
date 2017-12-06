@@ -1,5 +1,3 @@
-var u = require('ssb-names/util')
-
 exports.needs = {
   sbot: {
     friends: { get: 'first' },
@@ -35,6 +33,7 @@ exports.create = function (api) {
     }
   }
 }
+
 
 
 
