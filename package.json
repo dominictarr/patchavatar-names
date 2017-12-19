@@ -7,7 +7,10 @@
     "type": "git",
     "url": "git://github.com/dominictarr/patchavatar-names.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "hyperscript": "^2.0.2",
+    "ssb-ref": "^2.9.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
