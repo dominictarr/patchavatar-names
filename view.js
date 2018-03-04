@@ -33,8 +33,14 @@ exports.create = function (api) {
     var follows = h('div.avatar__relation')
     var followers = h('div.avatar__relation')
 
+    function image (id) {
+      var img = h('img')
+      api.avatar.image(id, function (src) { img.src = src })
+      return img
+    }
+
     function append (el, id) {
-      el.appendChild(h('a', {href: id}, api.avatar.image(id)))
+      el.appendChild(h('a', {href: id}, image(id)))
     }
 
     //categories:
@@ -62,8 +68,7 @@ exports.create = function (api) {
 
     return h('div.Avatar__view',
       h('div.Avatar__header',
-        h('h1', api.identity.main() == id ? 'you are: ' : 'this is: ', api.avatar.name(id)),
-        api.avatar.image(id)
+        h('h1', api.identity.main() == id ? 'you are: ' : 'this is: ', api.avatar.name(id)), image(id)
       ),
       //actions: follow, etc
       h('div.Avatar__actions', api.avatar.action(id)),
@@ -83,5 +88,7 @@ exports.create = function (api) {
 
   }}}
 }
+
+
 
 

@@ -9,11 +9,15 @@
   },
   "dependencies": {
     "hyperscript": "^2.0.2",
+    "mkdirp": "^0.5.1",
     "ssb-ref": "^2.9.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "browser": {
+    "./thumbnails": "./browser-thumbnails"
   },
   "author": "'Dominic Tarr' <dominic.tarr@gmail.com> (dominictarr.com)",
   "license": "MIT"

@@ -17,18 +17,17 @@ exports.gives = {
   }
 }
 
+var onThumbnail = require('./browser-thumbnails') //require('./thumbnails')
+
 exports.create = function (api) {
   var friends, names, wait = []
   return {
     avatar: {
-      image: function (id) {
-        var img = document.createElement('img')
-        img.title = id
+      image: function (id, onImage) {
+        if('function' !== typeof onImage) throw new Error('should be a function, was:'+onImage)
         api.sbot.names.getImageFor(id, function (err, blob) {
-          if(!ref.isBlob(blob)) return
-          img.src = 'http://localhost:8989/blobs/get/'+blob
+          onThumbnail('http://localhost:8989/blobs/get/'+blob, onImage)
         })
-        return img
       }, //fall through...
       name: function (id) {
         var span = document.createElement('span')
@@ -43,6 +42,4 @@ exports.create = function (api) {
     }
   }
 }
-
-
 
