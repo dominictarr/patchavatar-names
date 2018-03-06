@@ -17,7 +17,7 @@ exports.gives = {
   }
 }
 
-var onThumbnail = require('./browser-thumbnails') //require('./thumbnails')
+var onThumbnail = require('./thumbnails')
 
 exports.create = function (api) {
   var friends, names, wait = []
